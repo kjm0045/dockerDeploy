@@ -8,4 +8,6 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 sudo apt-get autoremove
 sudo mv daemon.json /etc/docker/daemon.json
 sudo usermod -aG docker ubuntu
-sudo systemctl restart docker.service
+sudo systemctl stop docker.service
+sudo systemctl stop docker.socket
+sudo systemctl start docker.service
