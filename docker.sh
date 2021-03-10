@@ -6,8 +6,6 @@ echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] 
 sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 sudo apt-get autoremove
-sudo mv daemon.json /etc/docker/daemon.json
+sudo cp daemon.json /etc/docker/daemon.json
 sudo usermod -aG docker ubuntu
-sudo systemctl stop docker.service
-sudo systemctl stop docker.socket
-sudo systemctl start docker.service
+sudo systemctl restart docker
